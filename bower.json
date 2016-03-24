@@ -1,0 +1,21 @@
+{
+  "name": "Simple-node-app",
+  "homepage": "https://github.com/krawitzzZ/simple-node-app",
+  "authors": [
+    "Nikita Demin <nikita@intspirit.com>"
+  ],
+  "description": "Simple node app",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
