@@ -22,7 +22,7 @@ module.exports = function (passport) {
         process.nextTick(function () {
 
 
-            // continue here......
+            // continue from here......
 
 
         })
