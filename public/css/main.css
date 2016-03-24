@@ -1,0 +1,61 @@
+/*=========================================MAIN SETTINGS=========================================*/
+
+body, html {
+    height: 100%;
+    font-family: sans-serif;
+    color: #5e5e5e;
+}
+
+.wrapper.container {
+    background-color: #e5e5e5;
+    height: 90%;
+    min-height: 70rem;
+}
+
+header h1 {
+    margin: 30px auto 30px;
+}
+
+header nav .nav-justified {
+    padding-right: 0;
+}
+
+header nav .nav-pills > li {
+    font-size: 1.8rem;
+}
+
+header nav .nav-pills > li > a {
+    color: #656565;
+    background-color: #d5d5d5;
+    margin: 1rem;
+}
+
+header .nav-pills>li.active>a,
+header .nav-pills>li.active>a:focus,
+header .nav-pills>li.active>a:hover {
+    background-color: #aaaaaa;
+}
+
+footer.container {
+    height: 10%;
+    min-height: 8rem;
+    font-size: 16px;
+    line-height: 8rem;
+    background-color: #cccccc;
+}
+
+footer.container b {
+    margin: 0 1rem;
+}
+
+#main {
+    padding-top: 3rem;
+}
+
+.form-horizontal {
+    padding: 0 1rem;
+}
+
+h2.login {
+    margin: 3rem;
+}

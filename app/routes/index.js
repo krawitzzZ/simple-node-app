@@ -1,22 +1,21 @@
 var log = require('../../libs/logger');
+var isLoggedIn = require('../../libs/middleware/isLoggedIn');
 
-module.exports = function (router) {
+module.exports = function (router, passport) {
 
     router.use(function (req, res, next) {
-        log.info('request received');
+        log.info('request received on ' + req.baseUrl + req.url);
         next();
     });
 
-    router.get('/', require('./main'));
+    router.get('/', require('./home').get);
+    router.post('/', require('./home').post);
 
-    router.post('/users', require('./create_user'));
+    router.get('/api/register', require('./register').get);
+    router.post('/api/register', require('./register').post);
 
-    router.get('/users', require('./get_users'));
+    router.get('/api/chat', isLoggedIn, require('./chat').get);
 
-    router.get('/users/:user_id', require('./get_single_user'));
-
-    router.put('/users/:user_id', require('./update_user'));
-
-    router.delete('/users/:user_id', require('./delete_user'));
+    router.post('/api/logout', require('./logout').post);
 
 };

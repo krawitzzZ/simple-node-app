@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+var mongoose = require('../../libs/mongoose');
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
@@ -7,12 +7,12 @@ var UserSchema = new Schema({
         required: true,
         unique: true
     },
-    surname: {
+    password: {
         type: String,
         required: true
     },
-    age: {
-        type: Number,
+    salt: {
+        type: String,
         required: true
     },
     created: {

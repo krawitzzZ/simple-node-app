@@ -9,5 +9,17 @@
         }
       }
     }
+  },
+  "session": {
+    "secret": "MamaWashesTheFrame",
+    "key": "sid",
+    "resave": false,
+    "saveUninitialized": false,
+    "cookie": {
+      "secure": false,
+      "path": "/",
+      "httpOnly": true,
+      "maxAge": null
+    }
   }
 }
