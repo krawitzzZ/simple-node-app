@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(require('morgan')('dev'));
-app.set('views', './views');
+app.set('views', 'app/views');
 app.set('view engine', 'jade');
 
 require('./libs/passport')(passport);
