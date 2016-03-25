@@ -21,18 +21,36 @@ module.exports = function (passport) {
         
         process.nextTick(function () {
 
+            User.findOne({ 'local.name': name }, function (err, user) {
+                if (err) {
+                    done(err);
+                }
 
-            // continue from here......
+                if (user) {
+                    return done(null, false, req.flash('signupMessage', 'This name already in use'));
+                } else if (name.length < 3) {
+                    return done(null, false, req.flash('signupMessage', 'Name must have 3 symbols at least'));
+                } else if (password.length < 3) {
+                    return done(null, false, req.flash('signupMessage', 'Password must have 3 symbols at least'));
+                } else {
+                    var newUser = new User();
+                    newUser.local.name = name;
+                    newUser.local.password = newUser.generateHash(password);
 
-
-        })
-        
-        
-        
-        
-        
+                    newUser.save(function (err) {
+                        if (err) {
+                            throw err;
+                        }
+                        done(null, newUser);
+                    });
+                }
+            });
+        });
     }));
-    
-    
-    
+
+
+
+
+
+
 };

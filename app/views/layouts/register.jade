@@ -1,16 +1,20 @@
 div.container
-    form.form-horizontal
+    form.form-horizontal(method="post", action="/api/register")
         h2.login.text-center Please register
+
+        - if (message.length > 0)
+            div.text-center.alert.alert-danger.col-sm-9.col-sm-offset-2= message
+
         div.form-group
             label.col-sm-2.control-label(for="registerName") Name
             div.col-sm-9
-                input#registerName.form-control(type="text", placeholder="Name")
+                input#registerName.form-control(type="text", name="name", placeholder="Name")
 
         div.form-group
             label.col-sm-2.control-label(for="registerPassword") Password
             div.col-sm-9
-                input#registerPassword.form-control(type="password", placeholder="Password")
+                input#registerPassword.form-control(type="password", name="password", placeholder="Password")
 
         div.form-group
             div.col-sm-offset-2.col-sm-9
-                button.btn.btn-default Register
+                button.btn.btn-default(type="submit") Register

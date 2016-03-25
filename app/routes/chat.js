@@ -1,4 +1,4 @@
-exports.get = function(req, res) {
+module.exports = function(req, res) {
 
     res.render('chat', {
         user : req.user

@@ -8,12 +8,9 @@ var userSchema = new mongoose.Schema({
         name: {
             type: String,
             unique: true,
-            required: true
+            sparse: true
         },
-        password: {
-            type: String,
-            required: true
-        }
+        password: String
     },
     vkontakte: {
         id: String,
@@ -27,7 +24,7 @@ userSchema.methods.generateHash = function (password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8));
 };
 
-userSchema.methods.isPasswordValid = function (password) {
+userSchema.methods.validPassword = function (password) {
     return bcrypt.compareSync(password, this.local.password);
 };
 

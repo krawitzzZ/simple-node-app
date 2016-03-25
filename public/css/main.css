@@ -1,15 +1,13 @@
 /*=========================================MAIN SETTINGS=========================================*/
 
 body, html {
-    height: 100%;
     font-family: sans-serif;
     color: #5e5e5e;
 }
 
 .wrapper.container {
     background-color: #e5e5e5;
-    height: 90%;
-    min-height: 70rem;
+    min-height: 81rem;
 }
 
 header h1 {
@@ -37,7 +35,6 @@ header .nav-pills>li.active>a:hover {
 }
 
 footer.container {
-    height: 10%;
     min-height: 8rem;
     font-size: 16px;
     line-height: 8rem;
@@ -62,4 +59,10 @@ h2.login {
 
 h3.login {
     margin: 2rem;
+}
+
+.chat {
+    height: 45rem;
+    margin: 3rem;
+    overflow: auto;
 }

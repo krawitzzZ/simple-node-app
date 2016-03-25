@@ -1,18 +1,22 @@
 div.container
     h2.text-center We are glad to see you in our chat!
 
-    form.form-horizontal.col-md-6.col-md-offset-3
+    form.form-horizontal.col-md-6.col-md-offset-3(method="post", action="/")
         h3.login.text-center Please log in
+
+        - if (message.length > 0)
+            div.text-center.alert.alert-danger= message
+
         div.form-group
             label.col-sm-2.control-label(for="loginName") Name
             div.col-sm-10
-                input#loginName.form-control(type="text", placeholder="Name")
+                input#loginName.form-control(type="text", name="name", placeholder="Name")
 
         div.form-group
             label.col-sm-2.control-label(for="loginPassword") Password
             div.col-sm-10
-                input#loginPassword.form-control(type="password", placeholder="Password")
+                input#loginPassword.form-control(type="password",name="password", placeholder="Password")
 
         div.form-group
             div.col-sm-offset-2.col-sm-10
-                button.btn.btn-default Log in
+                button.btn.btn-default(type="submit") Log in
