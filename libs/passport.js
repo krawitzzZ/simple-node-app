@@ -18,20 +18,24 @@ module.exports = function (passport) {
         passwordField: 'password',
         passReqToCallback: true
     }, function (req, name, password, done) {
-        
         process.nextTick(function () {
 
+            if (name.length < 3) {
+                return done(null, false, req.flash('signupMessage', 'Name must have at least 3 symbols'));
+            }
+
+            if (password.length < 3) {
+                return done(null, false, req.flash('signupMessage', 'Password must have at least 3 symbols'));
+            }
+
             User.findOne({ 'local.name': name }, function (err, user) {
+
                 if (err) {
                     done(err);
                 }
 
                 if (user) {
                     return done(null, false, req.flash('signupMessage', 'This name already in use'));
-                } else if (name.length < 3) {
-                    return done(null, false, req.flash('signupMessage', 'Name must have 3 symbols at least'));
-                } else if (password.length < 3) {
-                    return done(null, false, req.flash('signupMessage', 'Password must have 3 symbols at least'));
                 } else {
                     var newUser = new User();
                     newUser.local.name = name;
@@ -48,9 +52,29 @@ module.exports = function (passport) {
         });
     }));
 
+    passport.use('local-login', new LocalStrategy({
+        usernameField: 'name',
+        passwordField: 'password',
+        passReqToCallback: true
+    }, function (req, name, password, done) {
+        process.nextTick(function () {
 
+            User.findOne({ 'local.name': name }, function (err, user) {
 
+                if (err) {
+                    done(err);
+                }
 
+                if (!user) {
+                    return done(null, false, req.flash('loginMessage', 'No user found'));
+                }
 
+                if (!user.validPassword(password)) {
+                    return done(null, false, req.flash('loginMessage', 'Oops! Wrong password'));
+                }
 
+                return done(null, user);
+            });
+        });
+    }));
 };

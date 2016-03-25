@@ -1,6 +1,9 @@
+- if (user)
+    a(href="/api/logout", role="button").btn.btn-default.login-out Log out
+
 h1.text-center Welcome!
 nav.clearfix
     ul.nav.nav-pills.nav-justified.col-md-6
-        li(role="presentation"): a(href="/") Home
-        li(role="presentation"): a(href="/api/chat") Chat
-        li(role="presentation"): a(href="/api/register") Register
+        li(role="presentation", class=home): a(href="/") Home
+        li(role="presentation", class=chat): a(href="/api/chat") Chat
+        li(role="presentation", class=register): a(href="/api/register") Register

@@ -24,6 +24,6 @@ module.exports = function (router, passport) {
 
     router.get('/api/chat', isLoggedIn, require('./chat'));
 
-    router.post('/api/logout', require('./logout'));
+    router.get('/api/logout', require('./logout'));
 
 };

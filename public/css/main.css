@@ -6,6 +6,7 @@ body, html {
 }
 
 .wrapper.container {
+    position: relative;
     background-color: #e5e5e5;
     min-height: 81rem;
 }
@@ -51,6 +52,13 @@ footer.container b {
 
 .form-horizontal {
     padding: 0 1rem;
+}
+
+.login-out {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 10rem;
 }
 
 h2.login {
