@@ -15,7 +15,7 @@ var logger = new winston.Logger({
             colorize: true,
             handleExceptions: true,
             json: true,
-            level: 'info',
+            level: 'error',
             filename: 'logs.log',
             maxsize: 10485760 //10MB
         })

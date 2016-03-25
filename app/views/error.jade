@@ -8,7 +8,7 @@ html
                 include layouts/nav
             section
                 div#main.row
-                    div.alert.alert-danger :( Page not found
+                    div.alert.alert-danger.text-center= 'Sorry :( ' + error.status + ': ' + error.message
 
         footer.container
             include layouts/footer
