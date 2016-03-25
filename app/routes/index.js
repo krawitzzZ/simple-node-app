@@ -1,14 +1,11 @@
-var log = require('../../libs/logger');
 var isLoggedIn = require('../../libs/middleware/isLoggedIn');
 
 module.exports = function (router, passport) {
 
-    router.use(function (req, res, next) {
-        log.info(req.method.toUpperCase() + ' request received on ' + req.baseUrl + req.url);
-        next();
-    });
+    router.use(require('../../libs/middleware/requestLogger'));
 
     router.get('/', require('./home'));
+
     router.post('/', passport.authenticate('local-login', {
         successRedirect: '/api/chat',
         failureRedirect: '/',
@@ -16,6 +13,7 @@ module.exports = function (router, passport) {
     }));
 
     router.get('/api/register', require('./register'));
+
     router.post('/api/register', passport.authenticate('local-signup', {
         successRedirect: '/api/chat',
         failureRedirect: '/api/register',

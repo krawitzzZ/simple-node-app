@@ -33,7 +33,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-
 var router = express.Router();
 app.use('/', router);
 require('./app/routes')(router, passport);

@@ -1,5 +1,6 @@
 - if (user)
-    a(href="/api/logout", role="button").btn.btn-default.login-out Log out
+    a(href="/api/logout", role="button").btn.btn-default.logout Log out
+    p.loggedAs= 'Logged as ' + user.local.name
 
 h1.text-center Welcome!
 nav.clearfix
